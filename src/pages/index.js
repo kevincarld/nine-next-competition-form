@@ -1,11 +1,18 @@
 
 // chakra
-import { Box, Heading, Button } from "@chakra-ui/react"
+import { Box } from "@chakra-ui/react"
 //
+import Hero from "components/Hero"
+import Layout from "components/Layout"
+
 export default function Home() {
   return (
-    <Box>
-      <Heading>Test</Heading>
-    </Box>
+    <Layout>
+      <Hero />
+
+      <Box id='intro' minH={'100vh'}>
+
+      </Box>
+    </Layout>
   )
 }

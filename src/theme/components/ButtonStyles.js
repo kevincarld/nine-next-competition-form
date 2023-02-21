@@ -11,11 +11,29 @@ export const ButtonStyles = {
   sizes: {},
 
   // styles for different visual variants ("outline", "solid")
-  variants: {},
+  variants: {
+    cta: {
+      bg: '#F3831F',
+      color: 'white',
+      fontSize: {base: '16px', d: '22px'},
+      lineHeight: {base: '20px', d:'30px'},
+      fontWeight: 'bold',
+      height: 'auto',
+      pt: '15px',
+      pb: '15px',
+      pl: '60px',
+      pr: '60px',
+      borderRadius: '999px',
+
+      _hover: {
+        bg: 'white',
+        color: '#F3831F',
+      }
+    }
+  },
 
   // default values for 'size', 'variant' and 'colorScheme'
   defaultProps: {
-    variant: 'solid',
-    size: "md",
+    variant: 'cta'
   },
 }
