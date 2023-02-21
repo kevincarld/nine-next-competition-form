@@ -15,8 +15,6 @@ yarn dev
 ## Setting up meta
 
 - Check and update config file /next.config.js
-- App Icons are being called in _document.js
-- App meta are being called in _app.js
 - Upload local fonts in public/fonts and configure within theme/components/GlobalCss.js
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
