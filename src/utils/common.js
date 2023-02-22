@@ -59,3 +59,11 @@ export const mock = (dimensions, text='Img', color="gray") => {
 // helper functions used for formik form
 export const isFieldTouched = (formik, fieldName) => formik?.touched?.hasOwnProperty(fieldName)
 export const isFieldError = (formik, fieldName) => formik?.errors?.hasOwnProperty(fieldName)
+export const validateCheckboxTrue = (formik=false, fieldName=false, errorMsg="Please click this checkbox.") => {
+  if(!formik || !fieldName) return true
+  if(formik?.values[fieldName] === '' || formik?.values[fieldName] === false) {
+    formik.setFieldError(fieldName, errorMsg)
+    return false
+  }
+  return true
+}
