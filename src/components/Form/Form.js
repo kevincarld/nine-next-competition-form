@@ -1,5 +1,5 @@
 import React from 'react'
-
+// chakra
 import {
   Flex,
   Box,
@@ -19,28 +19,14 @@ import {
   IconButton,
   InputGroup
 } from '@chakra-ui/react';
-
+// formik
 import { Formik, Form, Field } from 'formik';
-import * as Yup from 'yup'
-import { isFieldError, isFieldTouched } from 'utils/common';
+//
 import Container from '../util/Container';
+import { isFieldError, isFieldTouched } from 'utils/common';
+import { initialFormValues, validationSchema } from './util/schema';
 
 export default function FormComponent() {
-
-  // Formik property values
-  const InitialValues = {
-    FIRST_NAME: '',
-    LAST_NAME: '',
-
-    //default
-    meta: {
-      createdOn: new Date(),
-    }
-  }
-  const validationSchema = Yup.object({
-    FIRST_NAME: Yup.string().required('Please enter your first name.'),
-    LAST_NAME: Yup.string().required('Please enter your last name.'),
-  })
 
   const handleFormSubmit = async (formik) => {
     if(formik.isValid && formik.dirty) {
@@ -71,7 +57,7 @@ export default function FormComponent() {
     <Container>
 
       <Formik
-        initialValues={InitialValues}
+        initialValues={initialFormValues}
         validationSchema={validationSchema}
         onSubmit={(values, actions) => {
           return true // give responsibility to handleFormSubmit()
@@ -125,7 +111,7 @@ export default function FormComponent() {
                       isLoading={formik.isSubmitting}
                       spinner={<Spinner />}
                     >
-                      Sign in
+                      Submit
                     </Button>
                   </Box>
 
