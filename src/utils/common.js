@@ -55,3 +55,7 @@ export const mock = (dimensions, text='Img', color="gray") => {
   let newText = text.replaceAll(' ', '+')
   return `https://via.placeholder.com/${dimensions}/${colors[color]}?text=${newText}`
 }
+
+// helper functions used for formik form
+export const isFieldTouched = (formik, fieldName) => formik?.touched?.hasOwnProperty(fieldName)
+export const isFieldError = (formik, fieldName) => formik?.errors?.hasOwnProperty(fieldName)

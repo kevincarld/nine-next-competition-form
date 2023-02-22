@@ -1,7 +1,7 @@
 import React from 'react'
 import customTheme from 'theme';
 import GlobalCss from 'theme/components/GlobalCss';
-import GuideLines from './GuideLines';
+import GuideLines from './Guidelines';
 import { ChakraProvider } from '@chakra-ui/react'
 
 export default function Layout({children}) {

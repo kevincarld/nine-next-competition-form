@@ -15,19 +15,21 @@ export const ButtonStyles = {
     cta: {
       bg: '#F3831F',
       color: 'white',
-      fontSize: {base: '16px', d: '22px'},
-      lineHeight: {base: '20px', d:'30px'},
+      fontSize: {base: '14px', d: '18px'},
+      lineHeight: {base: '20px', d:'24px'},
       fontWeight: 'bold',
       height: 'auto',
-      pt: '15px',
-      pb: '15px',
+      pt: '12px',
+      pb: '12px',
       pl: '60px',
       pr: '60px',
       borderRadius: '999px',
+      border: '2px solid transparent',
 
       _hover: {
         bg: 'white',
         color: '#F3831F',
+        border: '2px solid #F3831F'
       }
     }
   },
