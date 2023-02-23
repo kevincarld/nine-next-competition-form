@@ -34,35 +34,40 @@ export default function FormComponent() {
   const handleFormSubmit = async (formik) => {
     formik.setSubmitting(true)
 
-    const isAccepted = validateCheckboxTrue(formik, 'ACCEPTANCE', 'Please click this checkbox to accept.')
-    if(isAccepted && formik.isValid && formik.dirty) {
+    // TODO: remove this later on when there's already an api endpoint set to post form values to
+    setTimeout(() => {
+      const isAccepted = validateCheckboxTrue(formik, 'ACCEPTANCE', 'Please click this checkbox to accept.')
+      if(isAccepted && formik.isValid && formik.dirty) {
 
-      const { values } = formik
-      const firstname = values['FIRST_NAME']
-      const lastname = values['LAST_NAME']
+        const { values } = formik
+        const firstname = values['FIRST_NAME']
+        const lastname = values['LAST_NAME']
 
-      // debug
-      window.alert(JSON.stringify(values, null, 2))
+        // debug
+        window.alert(JSON.stringify(values, null, 2))
 
 
-      // submit to formstack
-      // axios.post('https://submit.formstack.com/forms/YOUR_FORM_ID', values)
-      // .then(response => {
-      //   console.log(response);
-      //     formik.setSubmitting(false);
-      //      setFormSubmitted(true)
-      // })
-      // .catch(error => {
-      //  console.log(error);
-      //  formik.setSubmitting(false)
-      //  setFormSubmitted(true)
-      // });
+        // submit to formstack
+        // axios.post('https://submit.formstack.com/forms/YOUR_FORM_ID', values)
+        // .then(response => {
+        //   console.log(response);
+        //     formik.setSubmitting(false);
+        //      setFormSubmitted(true)
+        // })
+        // .catch(error => {
+        //  console.log(error);
+        //  formik.setSubmitting(false)
+        //  setFormSubmitted(true)
+        // });
+
+        formik.setSubmitting(false)
+        setFormSubmitted(true)
+      }
 
       formik.setSubmitting(false)
-      setFormSubmitted(true)
-    }
+    }, 1000)
 
-    formik.setSubmitting(false)
+
   }
 
   return (
