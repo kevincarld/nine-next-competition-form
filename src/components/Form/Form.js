@@ -24,7 +24,7 @@ import { Formik, Form, Field } from 'formik';
 //
 import { Select } from 'chakra-react-select';
 import Container from '../util/Container';
-import { isFieldError, isFieldTouched, validateCheckboxTrue } from 'utils/common';
+import { isFieldError, isFieldTouched, validateCheckboxTrue, checkInvalidFields } from 'utils/common';
 import { initialFormValues, validationSchema } from './util/schema';
 import Thankyou from './Thankyou';
 
@@ -83,8 +83,7 @@ export default function FormComponent() {
           >
 
           {(formik) => {
-            const invalidFname = isFieldTouched(formik, 'FIRST_NAME') && isFieldError(formik, 'FIRST_NAME')
-            const invalidLname = isFieldTouched(formik, 'LAST_NAME') && isFieldError(formik, 'LAST_NAME')
+            const invalidFields = checkInvalidFields(formik, ['FIRST_NAME', 'LAST_NAME'])
 
             const selectOptions = [
               {label: 'Select A', value: 'select a'},
@@ -101,28 +100,28 @@ export default function FormComponent() {
                 >
                   <Stack spacing={4}>
                     <Flex gap={4}>
-                      <FormControl id="FIRST_NAME" isRequired isInvalid={invalidFname}>
+                      <FormControl id="FIRST_NAME" isRequired isInvalid={invalidFields['FIRST_NAME']}>
                         <FormLabel htmlFor={`FIRST_NAME`}>Enter your first name</FormLabel>
                         <Field
                           as={Input}
                           type="text"
                           id="FIRST_NAME"
                           name="FIRST_NAME"
-                          placeholder='First name *'
+                          placeholder='First name'
                         />
-                        {invalidFname && <FormErrorMessage>{formik?.errors?.FIRST_NAME}</FormErrorMessage>}
+                        {invalidFields['FIRST_NAME'] && <FormErrorMessage>{formik?.errors?.FIRST_NAME}</FormErrorMessage>}
                       </FormControl>
 
-                      <FormControl id="LAST_NAME" isRequired isInvalid={invalidLname}>
+                      <FormControl id="LAST_NAME" isRequired isInvalid={invalidFields['LAST_NAME']}>
                         <FormLabel htmlFor={`LAST_NAME`}>Enter your last name</FormLabel>
                         <Field
                           as={Input}
                           type="text"
                           id="LAST_NAME"
                           name="LAST_NAME"
-                          placeholder='Last name *'
+                          placeholder='Last name'
                         />
-                        {invalidLname && <FormErrorMessage>{formik?.errors?.LAST_NAME}</FormErrorMessage>}
+                        {invalidFields['LAST_NAME'] && <FormErrorMessage>{formik?.errors?.LAST_NAME}</FormErrorMessage>}
                       </FormControl>
                     </Flex>
 
