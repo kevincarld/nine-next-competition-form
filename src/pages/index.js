@@ -5,6 +5,7 @@ import { Box } from "@chakra-ui/react"
 import Layout from "components/util/Layout"
 import Hero from "components/Hero"
 import Form from "components/Form/Form"
+import Terms from "components/Terms"
 
 export default function Home() {
   return (
@@ -13,6 +14,7 @@ export default function Home() {
 
       <Box id='intro' minH={'100vh'}>
         <Form />
+        <Terms />
       </Box>
     </Layout>
   )
