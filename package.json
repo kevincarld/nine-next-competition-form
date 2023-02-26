@@ -13,7 +13,7 @@
     "export": "next build && next export",
     "clean": "rm -rf out",
     "cleanall": "rm -rf out && rm -rf .next",
-    "surge": "git pull && yarn export && surge"
+    "surge": "git pull && yarn export && surge --domain nine-comp.surge.sh"
   },
   "dependencies": {
     "@chakra-ui/react": "^2.5.1",
